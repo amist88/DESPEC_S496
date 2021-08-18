@@ -244,7 +244,8 @@ private:
     double  fine_T_edge_lead_fat[5][100];
     double  fine_T_edge_trail_fat[5][100];
     bool    fired_tamex_fat[5];
-    
+    UInt epoch_ch_leading[5][100];
+    UInt epoch_ch_trailing[5][100];
     
 
 
@@ -383,7 +384,7 @@ public:
                          ULong64_t*,double*,
                          ULong64_t*,double*,
                          int*,int*);
-    void set_DATA_FATIMA_TAMEX(int*,double**,double**,UInt**,double*,double*,int,int**);
+   void set_DATA_FATIMA_TAMEX(int*,double**,double**,UInt**,double*,double*,int,int**,uint**,uint**);
 
     void set_DATA_FINGER(int*,double**,double**,UInt**,double*,double*,int,int**);
 
