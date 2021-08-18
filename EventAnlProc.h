@@ -231,7 +231,8 @@ class EventAnlProc : public TGo4EventProcessor {
       double Fat_QDC_E[FAT_MAX_VME_CHANNELS];
       double Fat_QDC_E_Raw[FAT_MAX_VME_CHANNELS];
       ULong64_t timeLAST_Fat, timeFIRST_Fat;
-       double FatRealTime;
+      double FatRealTime;
+      double lead_lead_fast_fat_onechan[FATIMA_TAMEX_HITS];
       
       Long64_t Fat_QDC_T_coarse[FAT_MAX_VME_CHANNELS];
       double Fat_QDC_T_fine[FAT_MAX_VME_CHANNELS];
@@ -540,7 +541,7 @@ class EventAnlProc : public TGo4EventProcessor {
              TH1 *hFat_tamex_hit_pattern;
              TH1 *hFat_tamex_multiplicity;
              TH2 *hFat_ToT_Slow_vs_Fast;
-
+            TH1 *hFat_Lead_Lead_Fast_T;
             TH1 *hScalar_hit_pattern;
             //Fatima Histograms
             TH1 *hFAT_Energy[FAT_MAX_VME_CHANNELS];

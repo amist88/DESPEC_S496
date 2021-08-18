@@ -2186,6 +2186,7 @@ AidaHit EventAnlProc::ClusterPairToHit(std::pair<AidaCluster, AidaCluster> const
           
           hFat_tamex_hit_pattern =  MakeTH1('D', "FATIMA_TAMEX/Fatima_Hitpattern", "Fatima Hit pattern",55,0,55);  
           hFat_tamex_multiplicity =  MakeTH1('D', "FATIMA_TAMEX/Fatima_Multiplicity", "Fatima Multiplicity",55,0,55);  
+           hFat_Lead_Lead_Fast_T=  MakeTH1('D', "FATIMA_TAMEX/Test_dT", "Fatima Hit pattern",2000,-200000,200000);  
  }
  
  
@@ -2216,6 +2217,7 @@ void EventAnlProc::Do_Fatima_Tamex_Histos(EventUnpackStore* pInput, EventAnlStor
          SC41R_ANA_lead_fat[i] =0;
          bPlasDet1_coin_lead_Fat[i] =0;
          bPlasDet2_coin_lead_Fat[i] =0;
+         lead_lead_fast_fat_onechan[i]=0;
          
          }
                 
@@ -2249,6 +2251,15 @@ void EventAnlProc::Do_Fatima_Tamex_Histos(EventUnpackStore* pInput, EventAnlStor
                 for (int j = 0; j < pInput->fFat_Fast_Lead_N[i]; j++){  ///Hit 
 
                     lead_fast_fat[i][j] = pInput->fFat_Lead_Fast[i][j];  
+		    
+                     if(lead_fast_fat[i][j]!=0 && lead_fast_fat[i][j]!=0) 
+		    {
+                              
+                      lead_lead_fast_fat_onechan[j] = (lead_fast_fat[8][j]-lead_fast_fat[3][j])*5;  
+                
+                      
+                      hFat_Lead_Lead_Fast_T->Fill(lead_lead_fast_fat_onechan[j]);
+		    }
 		    
                     //hFat_Lead_Fast_T[i]->Fill(lead_fast_fat[i][j]);    
                     pOutput->pFat_Fast_LeadT[i][j] = lead_fast_fat[i][j];    
